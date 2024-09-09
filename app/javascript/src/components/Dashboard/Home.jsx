@@ -7,11 +7,12 @@ import PostItem from "../Posts/PostItem";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const [isPaneOpen, setIsPaneOpen] = useState(false);
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [isPaneOpen]);
 
   const fetchPosts = async () => {
     try {
@@ -27,10 +28,14 @@ const Home = () => {
     // }
   };
 
+  const updatePane = value => {
+    setIsPaneOpen(value);
+  };
+
   return (
     <div className="ml-32 h-screen">
       <Sidebar />
-      <Navbar title="Posts" />
+      <Navbar {...{ title: "Posts", isPaneOpen, updatePane }} />
       <div className="p-2">
         {posts.map(post => (
           <PostItem {...post} key={post.id} />
