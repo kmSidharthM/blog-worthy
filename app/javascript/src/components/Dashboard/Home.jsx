@@ -31,9 +31,11 @@ const Home = () => {
     <div className="ml-32 h-screen">
       <Sidebar />
       <Navbar title="Posts" />
-      {posts.map(post => (
-        <PostItem {...post} key={post.id} />
-      ))}
+      <div className="p-2">
+        {posts.map(post => (
+          <PostItem {...post} key={post.id} />
+        ))}
+      </div>
     </div>
   );
 };
