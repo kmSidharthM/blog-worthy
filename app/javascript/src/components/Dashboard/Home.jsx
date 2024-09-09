@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   return (
-    <div className="ml-32 h-screen bg-black p-2">
+    <div className="ml-32 h-screen">
       <Sidebar />
       <Navbar title="Posts" />
       {posts.map(post => (
