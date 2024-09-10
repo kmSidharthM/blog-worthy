@@ -37,9 +37,11 @@ const Home = () => {
       <Sidebar />
       <Navbar {...{ title: "Posts", isPaneOpen, updatePane }} />
       <div className="p-2">
-        {posts.map(post => (
-          <PostItem {...post} key={post.id} />
-        ))}
+        {posts.map(postItem => {
+          const { post, post_owner } = postItem;
+
+          return <PostItem {...{ ...post, post_owner }} key={post.id} />;
+        })}
       </div>
     </div>
   );

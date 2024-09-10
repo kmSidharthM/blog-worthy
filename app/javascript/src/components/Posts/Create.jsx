@@ -35,8 +35,16 @@ const Create = ({ isPaneOpen, updatePane }) => {
         />
       </div>
       <div className=" mt-6 flex items-center space-x-2">
-        <Button label="Continue" onClick={createPost} />
-        <Button label="Cancel" style="text" onClick={() => updatePane(false)} />
+        <Button
+          className="rounded bg-purple-600 p-2 text-white"
+          label="Continue"
+          onClick={createPost}
+        />
+        <Button
+          label="Cancel"
+          style="tertiary"
+          onClick={() => updatePane(false)}
+        />
       </div>
     </Pane>
   );

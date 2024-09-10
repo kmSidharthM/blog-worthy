@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Modal, Typography } from "@bigbinary/neetoui";
 
-const Show = ({ isModalOpen, updateModal, title, description }) => (
+const Show = ({ isModalOpen, updateModal, title, description, post_owner }) => (
   <Modal
     className="flex flex-col space-y-4 p-4"
     isOpen={isModalOpen}
@@ -15,6 +15,9 @@ const Show = ({ isModalOpen, updateModal, title, description }) => (
         style="h2"
       >
         {title}
+      </Typography>
+      <Typography className="mb-4 text-gray-500" style="h5">
+        By {post_owner}
       </Typography>
     </div>
     <div className="space-y-2">

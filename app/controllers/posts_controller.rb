@@ -3,7 +3,13 @@
 class PostsController < ApplicationController
   def index
     posts = Post.all
-    render status: :ok, json: { posts: }
+    newPosts = posts.map do |post|
+      {
+        post:,
+        post_owner: post.user.name
+      }
+    end
+    render status: :ok, json: { posts: newPosts }
   end
 
   def create
