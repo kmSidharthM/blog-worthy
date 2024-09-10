@@ -3,6 +3,8 @@
 class Post < ApplicationRecord
   MAXIMUM_TITLE_LENGTH = 125
 
+  belongs_to :user, foreign_key: :post_owner_id
+
   validates :title, presence: true, length: { maximum: MAXIMUM_TITLE_LENGTH }
   validate :is_net_vote_negative
   validates_inclusion_of :is_blog_worthy, in: [true, false]

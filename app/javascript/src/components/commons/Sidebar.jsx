@@ -1,11 +1,9 @@
 import React from "react";
 
-import { Typography } from "@bigbinary/neetoui";
-
 const Sidebar = () => (
   <div className="fixed left-0 top-0 flex h-full w-32 flex-col items-center justify-between border-r-2 py-8">
-    <Typography style="h2">Logo</Typography>
-    <Typography style="h2">Profile</Typography>
+    <div className="h-20 w-16 bg-blue-400" />
+    <div className="h-20 w-20 rounded-full bg-black" />
   </div>
 );
 

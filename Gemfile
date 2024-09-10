@@ -74,3 +74,5 @@ gem "react-rails", "~> 2.7.1"
 gem "responders"
 
 gem "rexml", "3.3.5"
+
+gem "bcrypt", "~> 3.1.13"
