@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   defaults format: :json do
     resources :posts, only: %i[index create show], param: :slug
+    resources :users, only: :show, param: :id
   end
 
   root "home#index"

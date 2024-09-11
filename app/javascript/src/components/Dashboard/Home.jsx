@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div className="ml-32 h-screen">
-      <Sidebar />
+      <Sidebar id={1} />
       <Navbar {...{ title: "Posts", isPaneOpen, updatePane }} />
       <div className="p-2">
         {posts.map(postItem => (
