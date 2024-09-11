@@ -4,7 +4,7 @@ import { Typography } from "@bigbinary/neetoui";
 
 import Show from "./Show";
 
-const PostItem = ({ title, description, post_owner }) => {
+const PostItem = ({ title, description, post_owner, slug }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const updateModal = value => {
@@ -28,7 +28,7 @@ const PostItem = ({ title, description, post_owner }) => {
           {description}
         </Typography>
       </div>
-      <Show {...{ title, description, isModalOpen, updateModal, post_owner }} />
+      {isModalOpen ? <Show {...{ isModalOpen, updateModal, slug }} /> : ""}
     </div>
   );
 };

@@ -2,7 +2,12 @@
 
 class PostsController < ApplicationController
   before_action :load_posts, only: :index
+  before_action :load_post, only: :show
   def index
+    render
+  end
+
+  def show
     render
   end
 
@@ -20,5 +25,9 @@ class PostsController < ApplicationController
 
     def load_posts
       @posts = Post.all
+    end
+
+    def load_post
+      @post = Post.find_by!(slug: params[:slug])
     end
 end

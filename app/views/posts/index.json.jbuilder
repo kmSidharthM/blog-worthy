@@ -7,6 +7,7 @@ json.array! @posts do |post|
   json.upvotes post.upvotes
   json.downvotes post.downvotes
   json.is_blog_worthy post.is_blog_worthy
+  json.slug post.slug
 
   json.post_owner do
     json.id post.user.id
