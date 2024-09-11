@@ -16,9 +16,7 @@ const Home = () => {
 
   const fetchPosts = async () => {
     try {
-      const {
-        data: { posts },
-      } = await postApi.fetch();
+      const { data: posts } = await postApi.fetch();
       setPosts(posts);
     } catch (error) {
       logger.error(error);
@@ -37,11 +35,9 @@ const Home = () => {
       <Sidebar />
       <Navbar {...{ title: "Posts", isPaneOpen, updatePane }} />
       <div className="p-2">
-        {posts.map(postItem => {
-          const { post, post_owner } = postItem;
-
-          return <PostItem {...{ ...post, post_owner }} key={post.id} />;
-        })}
+        {posts.map(postItem => (
+          <PostItem {...postItem} key={postItem.id} />
+        ))}
       </div>
     </div>
   );

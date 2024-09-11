@@ -1,15 +1,9 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :load_posts, only: :index
   def index
-    posts = Post.all
-    newPosts = posts.map do |post|
-      {
-        post:,
-        post_owner: post.user.name
-      }
-    end
-    render status: :ok, json: { posts: newPosts }
+    render
   end
 
   def create
@@ -22,5 +16,9 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :description)
+    end
+
+    def load_posts
+      @posts = Post.all
     end
 end

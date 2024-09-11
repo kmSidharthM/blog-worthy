@@ -17,7 +17,7 @@ const Show = ({ isModalOpen, updateModal, title, description, post_owner }) => (
         {title}
       </Typography>
       <Typography className="mb-4 text-gray-500" style="h5">
-        By {post_owner}
+        By {post_owner.name}
       </Typography>
     </div>
     <div className="space-y-2">

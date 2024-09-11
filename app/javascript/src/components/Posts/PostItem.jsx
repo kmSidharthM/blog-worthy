@@ -21,7 +21,7 @@ const PostItem = ({ title, description, post_owner }) => {
           {title}
         </Typography>
         <Typography className="mb-4 ml-2 text-gray-500" style="h5">
-          Created by {post_owner}
+          Created by {post_owner.name}
         </Typography>
         <hr className="border-black" />
         <Typography className="overflow-hidden text-ellipsis pt-4 text-black">
