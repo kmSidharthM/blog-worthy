@@ -2,6 +2,8 @@
 
 class UsersController < ApplicationController
   before_action :load_user!, only: :show
+  skip_before_action :authenticate_user_using_x_auth_token, only: :create
+
   def show
     render
   end

@@ -31,8 +31,8 @@ const Home = () => {
   };
 
   return (
-    <div className="ml-32 h-screen">
-      <Sidebar id={1} />
+    <div className="ml-36 h-screen">
+      <Sidebar />
       <Navbar {...{ title: "Posts", isPaneOpen, updatePane }} />
       <div className="p-2">
         {posts.map(postItem => (
