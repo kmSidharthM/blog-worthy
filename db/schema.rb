@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_12_075912) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_12_190832) do
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_12_075912) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "post_owner_id"
+    t.integer "belonged_organization_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
@@ -41,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_12_075912) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "posts", "organizations", column: "belonged_organization_id"
   add_foreign_key "posts", "users", column: "post_owner_id"
   add_foreign_key "users", "organizations", column: "belonged_organization_id"
 end

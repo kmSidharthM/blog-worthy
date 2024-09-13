@@ -13,7 +13,9 @@ const Create = ({ isPaneOpen, updatePane }) => {
   const createPost = async () => {
     const post_owner_id = getFromLocalStorage("authUserId");
     try {
-      await postApi.create({ post: { title, description, post_owner_id } });
+      await postApi.create({
+        post: { title, description, post_owner_id },
+      });
       updatePane(false);
     } catch (error) {
       logger.error(error);

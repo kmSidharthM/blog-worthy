@@ -20,11 +20,13 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :description, :post_owner_id)
+      params.require(:post).permit(
+        :title, :description, :post_owner_id,
+        :belonged_organization_id).merge!(belonged_organization_id: @current_user.belonged_organization_id)
     end
 
     def load_posts
-      @posts = Post.all
+      @posts = Post.where(belonged_organization_id: @current_user.belonged_organization_id)
     end
 
     def load_post

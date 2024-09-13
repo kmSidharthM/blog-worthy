@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "/";
 
-export const setAuthHeaders = () => {
+const setAuthHeaders = () => {
   axios.defaults.headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -17,3 +17,10 @@ export const setAuthHeaders = () => {
     axios.defaults.headers["X-Auth-Token"] = token;
   }
 };
+
+const resetAuthTokens = () => {
+  delete axios.defaults.headers["X-Auth-Email"];
+  delete axios.defaults.headers["X-Auth-Token"];
+};
+
+export { setAuthHeaders, resetAuthTokens };

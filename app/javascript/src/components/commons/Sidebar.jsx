@@ -2,12 +2,16 @@ import React from "react";
 
 import { Avatar, Typography, Button } from "@bigbinary/neetoui";
 
-import { getFromLocalStorage } from "components/utils/storage";
+import authApi from "apis/auth";
+import { resetAuthTokens } from "apis/axios";
+import {
+  setToLocalStorage,
+  getFromLocalStorage,
+} from "components/utils/storage";
 
 const Sidebar = () => {
   const userName = getFromLocalStorage("authUserName");
   const userEmail = getFromLocalStorage("authEmail");
-
   // const showUser = async () => {
   //   try {
   //     const {
@@ -22,6 +26,22 @@ const Sidebar = () => {
   // useEffect(() => {
   //   showUser();
   // }, []);
+
+  const handleLogout = async () => {
+    try {
+      await authApi.logout();
+      setToLocalStorage({
+        authToken: null,
+        email: null,
+        userId: null,
+        name: null,
+      });
+      resetAuthTokens();
+      window.location.href = "/login";
+    } catch (error) {
+      logger.error(error);
+    }
+  };
 
   return (
     <div className="fixed left-0 top-0 flex h-full w-36 flex-col items-center justify-between border-r-2 py-8">
@@ -39,7 +59,11 @@ const Sidebar = () => {
         <Typography className="text-gray-500" style="h6">
           {userEmail}
         </Typography>
-        <Button className="bg-purple-600" label="Logout" />
+        <Button
+          className="bg-purple-600"
+          label="Logout"
+          onClick={handleLogout}
+        />
       </div>
     </div>
   );
