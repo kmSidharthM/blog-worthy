@@ -45,7 +45,7 @@ const Sidebar = () => {
 
   return (
     <div className="fixed left-0 top-0 flex h-full w-36 flex-col items-center justify-between border-r-2 py-8">
-      <div className="h-20 w-16 bg-purple-400" />
+      <div className="h-20 w-16 rounded-lg bg-purple-500" />
       <div className="mx-2 flex flex-col items-center space-y-1 px-1">
         <Avatar
           size="extraLarge"

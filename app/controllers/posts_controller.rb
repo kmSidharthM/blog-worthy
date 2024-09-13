@@ -12,16 +12,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
+    post = current_user.posts.new(post_params)
     post.save!
-    render status: :ok, json: { notice: "Successful" }
+    render_notice(t("successfully_created", entity: "Task"))
   end
 
   private
 
     def post_params
       params.require(:post).permit(
-        :title, :description, :post_owner_id,
+        :title, :description,
         :belonged_organization_id).merge!(belonged_organization_id: @current_user.belonged_organization_id)
     end
 

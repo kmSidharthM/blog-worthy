@@ -6,7 +6,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.freeze
 
   belongs_to :organization, foreign_key: :belonged_organization_id
-  has_many :tasks, foreign_key: :post_owner_id
+  has_many :posts, foreign_key: :post_owner_id
 
   has_secure_password
   has_secure_token :authentication_token

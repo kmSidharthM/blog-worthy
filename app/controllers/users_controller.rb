@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     user.save!
-    render status: :ok, json: { notice: "Successful" }
+    render_notice(t("successfully_created", entity: "User"))
   end
 
   private

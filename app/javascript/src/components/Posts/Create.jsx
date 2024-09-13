@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import { Pane, Button, Typography, Input } from "@bigbinary/neetoui";
 
-import { getFromLocalStorage } from "components/utils/storage";
-
 import postApi from "../../apis/posts";
 
 const Create = ({ isPaneOpen, updatePane }) => {
@@ -11,10 +9,9 @@ const Create = ({ isPaneOpen, updatePane }) => {
   const [description, setDescription] = useState("");
 
   const createPost = async () => {
-    const post_owner_id = getFromLocalStorage("authUserId");
     try {
       await postApi.create({
-        post: { title, description, post_owner_id },
+        post: { title, description },
       });
       updatePane(false);
     } catch (error) {
