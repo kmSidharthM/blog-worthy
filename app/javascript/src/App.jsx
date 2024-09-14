@@ -2,6 +2,7 @@ import React from "react";
 
 import { either, isEmpty, isNil } from "ramda";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Login from "components/Authentication/Login";
 import Signup from "components/Authentication/Signup";
@@ -15,6 +16,7 @@ const App = () => {
 
   return (
     <Router>
+      <ToastContainer />
       <Switch>
         {/* <Route exact component={Home} path="/" /> */}
         <Route exact component={Signup} path="/signup" />
